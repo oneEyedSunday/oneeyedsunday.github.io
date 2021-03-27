@@ -41,9 +41,9 @@ Since we are tracking latency, we'd let curl handle checking the response times
 curl -X POST http://localhost:9000/api/v1/ -H "authorization: xxxx" --form file='@filename'  -w "\n%{time_starttransfer}\n"
 {% endhighlight %}
 
-How to send post data with ab 
-http://www.adityamooley.net/2011/03/21/multipart-posting-with-apache-benchmark/
-https://stackoverflow.com/questions/12584998/apache-benchmark-multipart-form-data
+How to send post data with Apache Benchmark tool
+- http://www.adityamooley.net/2011/03/21/multipart-posting-with-apache-benchmark/
+- https://stackoverflow.com/questions/12584998/apache-benchmark-multipart-form-data
 
 {% highlight sh %}
 
