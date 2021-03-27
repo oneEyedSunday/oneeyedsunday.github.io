@@ -5,7 +5,7 @@ date:   2021-03-27 12:30:18 +0100
 categories: blog
 tags: perf observability
 ---
-*This post is the product of this [thread](https://twitter.com/Idiakosesunday/status/1375151404839542784?s=20)*
+*This post is the product of this [thread](https://twitter.com/Idiakosesunday/status/1375151404839542784?s=20){:target="_blank"}*
 
 
 Hello there, sometime last year I was dealing with largish csv files (200k rows) and noticed performace dropped significantly when i added some logging into the row handler.
@@ -31,7 +31,7 @@ We want to look at the impact of logging on latency. We explore the following lo
 
 
 We'd first see raw response times for a demo bare metal http server (with expressJs)
-Then we'd run a ~benchmark with the [package](https://www.npmjs.com/package/benchmark)~
+Then we'd run a ~benchmark with the [package](https://www.npmjs.com/package/benchmark){:target="_blank"}~
 
 _I could not figure out how to run the package and have decided to test the server via apache benchmark `ab`_
 
