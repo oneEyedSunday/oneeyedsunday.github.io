@@ -38,7 +38,7 @@ _I could not figure out how to run the package and have decided to test the serv
 Since we are tracking latency, we'd let curl handle checking the response times
 
 {% highlight sh %}
-curl -X POST http://localhost:9000/api/v1/ -H "authorization: xxxx" --form file='@filename'  -w "\n%{time_starttransfer}\n"
+curl -X POST http://localhost:9000 -H "authorization: xxxx" --form file='@filename'  -w "\n%{time_starttransfer}\n"
 {% endhighlight %}
 
 How to send post data with Apache Benchmark tool
@@ -47,7 +47,7 @@ How to send post data with Apache Benchmark tool
 
 {% highlight sh %}
 
-ab -n 1000 -c 100 -p csv_parse_one.json -H 'content-type: application/json' -H 'authorization: $TOKEN' http://localhost:8004/api/v1/contact/import
+ab -n 1000 -c 100 -p csv_parse_one.json -H 'content-type: application/json' -H 'authorization: $TOKEN' http://localhost:9000
 
 
 {% endhighlight %}
