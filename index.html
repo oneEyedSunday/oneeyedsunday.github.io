@@ -93,6 +93,13 @@
 		  <black-lives></black-lives>
 	</div>
 	<div class="content">
+    <ul>
+      {% for post in site.posts %}
+        <li>
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
 	</div>
     <!-- Somewhere in your page -->
     <script src="https://unpkg.com/sars-stand/black-lives.js" type="module"></script>
