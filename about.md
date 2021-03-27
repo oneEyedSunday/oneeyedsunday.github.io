@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hello and Welcome
+title: Me
 permalink: /about/
 ---
 I hope to have interesting stuff to write about myself here soon.
