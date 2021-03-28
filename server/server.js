@@ -1,5 +1,6 @@
 const http = require('http')
 const loggers = require('./loggers');
+const debug = require('util').format;
 
 const server = http.createServer((req, res) => {
     req.on('error', (err) => handleServerErrorResponse(res, JSON.stringify({ message: err.message })));
@@ -36,6 +37,7 @@ function handleServerErrorResponse(res, payload) {
  * @param {Function} successCallBack
  */
 function streamBody(req, successCallBack) {
+    // use worker thread???
     let processCount = 0;
     req.on('data', (chunk) => {
         const asString = chunk.toString();
@@ -44,7 +46,12 @@ function streamBody(req, successCallBack) {
         if (asString.startsWith('--------------------------') || asString.startsWith('Content-')) return
         // console.log(chunk.length, chunk);
         // console.log('Raw log line');
-        loggers.bareConsole.debug(`Chunk size processed: ${chunk.length}`)
+        // loggers.proxiedConsole.debug(`Chunk size processed: ${chunk.length}`)
+        // loggers.bareConsole.debug(`Chunk size processed: ${chunk.length}`)
+        // loggers.winstonConsole.debug(`Chunk size processed: ${chunk.length}`)
+        // loggers.winstonFile.debug(`Chunk size processed: ${chunk.length}`)
+        // debug("Chunk size processed: %d\n", chunk.lengh);
+        // console.log(`Chunk size processed: ${chunk.length}`)
         processCount++;
     })
 

@@ -10,11 +10,18 @@ function createLogger(transport) {
 
 
 module.exports = {
-    bareConsole: new Proxy({}, {
+    proxiedConsole: new Proxy({}, {
         get: (_, p) => {
             if(['info', 'error'].includes(p)) return console[p];
             return console.log;
         }
+    }),
+
+    bareConsole: ({
+        log: console.log,
+        info: console.info,
+        debug: console.log,
+        error: console.error
     }),
 
     winstonConsole: createLogger(new Winston.transports.Console({
