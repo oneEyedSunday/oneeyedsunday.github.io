@@ -63,7 +63,7 @@ function getRandomFromArray(array = []) {
  * @returns 
  */
 function truncateFile(filePath) {
-    return promisify(fs.truncate)(filePath, 0);
+    return promisify(fs.writeFile)(filePath, '',  { flag: 'w' });
 }
 
 /**
