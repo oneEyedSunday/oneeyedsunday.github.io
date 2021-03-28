@@ -28,10 +28,10 @@ We want to look at the impact of logging on latency. We explore the following lo
 
 
 
-We'd first see raw response times for a demo bare metal http server ~(with expressJs)~
-Then we'd run a ~benchmark with the [package](https://www.npmjs.com/package/benchmark){:target="_blank"}~
+We'd first see raw response times for a demo bare metal http server ~~(with expressJs)~~
+Then we'd run a ~~benchmark with the [package](https://www.npmjs.com/package/benchmark){:target="_blank"}~~
 
-_~I could not figure out how to run the package and have decided to test the server via apache benchmark `ab`~_
+_~~I could not figure out how to run the package and have decided to test the server via apache benchmark `ab`~~_
 _Passing in `POST` data to `ab` turned out to be cumbersome_
 _I settled for [`hey`](https://github.com/rakyll/hey){:target="_blank"}_
 
