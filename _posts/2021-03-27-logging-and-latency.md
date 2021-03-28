@@ -118,6 +118,8 @@ Unfortunately, it took too long and I could not notice any difference, so I swit
 * Using `format(xxxx, ...args)` piped to `/dev/null` 304.7 requests/sec
 * Using `format(xxxx, ...args)` piped to a file 304.94 requests/sec
 
+The benchmarks are provided [here](https://github.com/oneEyedSunday/oneeyedsunday.github.io/commit/b44dd3be2148bb2eafcdf7441abf7545296149c8){:target="_blank"}
+
 
 ### Making sense of the results
 The major surprise for me was that using the file transport performed faster, I'm so surprised I had to run the benchmark again before completing this post.
@@ -140,7 +142,7 @@ In summary, check your hot path folks, don't log what you don't need.
 Logging comes at a cost.
 
 ### Industry recommendations
-The [Twelve Factor App](https://12factor.net/) in their entry on [logs](https://12factor.net/logs) recommend that an application
+The [Twelve Factor App](https://12factor.net/){:target="_blank"} in their entry on [logs](https://12factor.net/logs){:target="_blank"} recommend that an application
 > should not attempt to write to or manage logfiles. Instead, each running process writes its event stream, unbuffered, to stdout. During local development, the developer will view this stream in the foreground of their terminal to observe the app’s behavior.
 
 > In staging or production deploys, each process’ stream will be captured by the execution environment, collated together with all other streams from the app, and routed to one or more final destinations for viewing and long-term archival. These archival destinations are not visible to or configurable by the app, and instead are completely managed by the execution environment.
