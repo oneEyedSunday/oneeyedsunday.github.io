@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Idiakose Sunday
-email: idiakosesunday@gmail.com
+email: 2019devacct@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   PolyMath. Autodidact. Aiming for the clouds
 baseurl: "" # the subpath of your site, e.g. /blog
