@@ -5,7 +5,6 @@ using Panama.Core.IoC;
 using System;
 using PassingStreams.Commands;
 using PassingStreams.Interfaces;
-using System.Linq;
 using System.Threading;
 using Panama.Core.Logger;
 
@@ -34,7 +33,7 @@ namespace PassingStreams.UseCases
                 // alter stream
                 // .Command<TransformWords>()
                 // write
-                // .Command<WriteStreamToOutputPath>()
+                .Command<WriteStreamToOutputPath>()
                 .InvokeAsync();
 
             _logger.LogInformation<WritingStuff>($"Result is {result.Success}");
@@ -44,15 +43,10 @@ namespace PassingStreams.UseCases
 
             // Everything after here can be moved inside a command
             var container = result.DataGetSingle<Container>();
-            // TODO the streaming can be moved inside the command chain
             var pipe = new System.IO.Pipelines.Pipe();
 
-
-            // needs an error handler here
-            // since cancellation will most likely happen here
-            await container.Pipelines
-                .FirstOrDefault()
-                .Stream(pipe, cts);
+            foreach (var stage in container.Pipelines)
+                await stage.Stream(pipe, cts);
 
             var stream = pipe.Reader.AsStream();
 
