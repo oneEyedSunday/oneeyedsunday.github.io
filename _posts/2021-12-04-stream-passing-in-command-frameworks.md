@@ -50,3 +50,17 @@ _ = await new Handler(ServiceLocator.Current)
     .Command<WriteFileStreamPipeline>()
     .InvokeAsync();
 ```
+
+Here is how consuming the stream will look like
+
+```csharp
+var container = result.DataGetSingle<Container>();
+var pipe = new System.IO.Pipelines.Pipe();
+
+foreach (var stage in container.Pipelines)
+    await stage.Stream(pipe, cts);
+
+var stream = pipe.Reader.AsStream();
+```
+
+We pass the pipe into every stage in the pipeline and handle the resulting stream.

@@ -21,12 +21,12 @@ namespace PassingStreams.Pipelines
                     , paramName: nameof(path));
             }
 
-            if (File.Exists(path))
-            {
-                throw new ArgumentException(
-                    message: $"[{nameof(path)}: \"{path}\"] is already exists. Please provide different path."
-                    , paramName: nameof(path));
-            }
+            // if (File.Exists(path))
+            // {
+            //     throw new ArgumentException(
+            //         message: $"[{nameof(path)}: \"{path}\"] is already exists. Please provide different path."
+            //         , paramName: nameof(path));
+            // }
 
             this.Path = path;
         }
@@ -49,7 +49,7 @@ namespace PassingStreams.Pipelines
                     , paramName: nameof(pipe));
             }
 
-            using (var file = new FileStream(this.Path, FileMode.Append, FileAccess.Write))
+            using (var file = new FileStream(this.Path, FileMode.Create, FileAccess.Write))
             {
                 while (true)
                 {

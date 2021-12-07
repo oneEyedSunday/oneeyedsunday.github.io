@@ -31,7 +31,7 @@ namespace PassingStreams.UseCases
                 // get
                 .Command<GetObjectFromInputPath>()
                 // alter stream
-                // .Command<TransformWords>()
+                .Command<TransformStreamUpperCase>()
                 // write
                 .Command<WriteStreamToOutputPath>()
                 .InvokeAsync();
