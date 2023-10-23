@@ -3,7 +3,9 @@ layout: post
 title:  "Logging and Latency"
 date:   2021-03-27 12:30:18 +0100
 categories: blog
-tags: perf observability
+tags:
+- perf
+- observability
 ---
 *This post is the product of this [thread](https://twitter.com/Idiakosesunday/status/1375151404839542784?s=20){:target="_blank"}*
 
