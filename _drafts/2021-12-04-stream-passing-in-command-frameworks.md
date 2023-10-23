@@ -67,3 +67,17 @@ var stream = pipe.Reader.AsStream();
 ```
 
 We pass the pipe into every stage in the pipeline and handle the resulting stream.
+
+```csharp
+_logger.LogDebug<WritingStuff>($"Read stream length is: {stream.Length}");
+
+```
+
+### Addedum
+
+So, I had this post in my drafts for about a year and half. Mostly because 
+- it didnt work out as planned (a failed experiment is an experiment nonetheless)
+- I tried getting some help, another set of eyes to look at this.
+
+Thankfull @NikiforovAll took a look and confirmed my suspicions, wrong use case because of the multi threaded nature of Panama. You can find his [diagnosis here](https://github.com/oneEyedSunday/oneeyedsunday.github.io/pull/9#pullrequestreview-842571146)
+
