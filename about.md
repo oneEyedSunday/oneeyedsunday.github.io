@@ -60,4 +60,3 @@ Social community for believers
 
 - [Email](mailto:2019devacct@gmail.com)
 - [Github](https://github.com/oneeyedsunday){:target="_blank"}
-- [LinkedIn](https://www.linkedin.com/in/idiakose-osemudiame-sunday-421814130/){:target="_blank"}
