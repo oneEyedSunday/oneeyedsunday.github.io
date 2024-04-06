@@ -78,21 +78,21 @@ functions:
 As of writing this article, I couldnt find a way to wire this up with the serverless framework so we will do this on the AWS console.
 [Create a configuration set](https://us-east-1.console.aws.amazon.com/ses/home?region=us-east-1#/configuration-sets/create) specifying a suitable name
 
-![AWS Console view of creating a configuration set](../media/create_config_set.png "Create a Configuration Set")
+![AWS Console view of creating a configuration set](/media/create_config_set.png "Create a Configuration Set")
 
 Next, switch to the `Event Destinations` tab and Add a new destination.
 
-![AWS Console view of adding an event destination to the Config set](../media/event_destination.png "Adding an event destination to the Configuration Set")
+![AWS Console view of adding an event destination to the Config set](/media/event_destination.png "Adding an event destination to the Configuration Set")
 
 
 In `Select Event Types` tick, `Rendering Failures`
 
-![AWS Console view of selecting event types](../media/select_event_types.png "Selecting Event types to notify")
+![AWS Console view of selecting event types](/media/select_event_types.png "Selecting Event types to notify")
 
 
 Next, in `Specify Destination` select `Amazon SNS` enter a suitable destination name, then select your SNS Topic (created earlier)
 
-![AWS Console view of specifying destination](../media/specify_destination.png "Specifying destination")
+![AWS Console view of specifying destination](/media/specify_destination.png "Specifying destination")
 
 
 ### Specify Configuration set
