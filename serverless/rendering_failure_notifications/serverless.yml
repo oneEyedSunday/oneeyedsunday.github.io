@@ -32,7 +32,7 @@ resources:
     SESRenderingTemplateFailureEmailSubscription:
       Type: AWS::SNS::Subscription
       Properties:
-        Endpoint: "idiakosesunday@yahoo.com"
+        Endpoint: foo@example.com
         Protocol: "email"
         TopicArn: !Ref SESRenderingTemplateFailureTopic
 
