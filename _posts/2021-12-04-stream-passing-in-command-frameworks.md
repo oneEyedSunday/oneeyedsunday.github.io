@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Handling streams in Command-Oriented Frameworks"
-date:   2021-12-04 17:30:00 +0100
+date:   2023-10-23 17:30:00 +0100
 categories: blog
 tags:
 - netcore
