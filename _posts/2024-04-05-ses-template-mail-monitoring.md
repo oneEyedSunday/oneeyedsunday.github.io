@@ -145,7 +145,7 @@ curl -X POST http://localhost:3000/mailing/send -H "Content-Type: application/js
 You should get an email from AWS like so
 
 ```
-"eventType":"Rendering Failure","mail":{"timestamp":"2024-04-06T13:04:00.928Z","source":"your_email@example.com","sourceArn":"arn:aws:ses:us-east-1:*********:identity/your_email@example.com","sendingAccountId":"*********","messageId":"0100018eb3823d0d-18c8f590-c453-4a7a-b668-0bdd51df78d3-000000","destination":["your_email@example.com"],"headersTruncated":false,"tags":{"ses:source-tls-version":["TLSv1.3"],"ses:operation":["SendTemplatedEmail"],"ses:configuration-set":["EmailFailures"],"ses:source-ip":["89.154.69.34"],"ses:from-domain":["example.com"],"ses:caller-identity":["root"]}},"failure":{"errorMessage":"Attribute 'name' is not present in the rendering data.","templateName":"DummyTemplate"}}
+{"eventType":"Rendering Failure","mail":{"timestamp":"2024-04-06T13:04:00.928Z","source":"your_email@example.com","sourceArn":"arn:aws:ses:us-east-1:*********:identity/your_email@example.com","sendingAccountId":"*********","messageId":"0100018eb3823d0d-18c8f590-c453-4a7a-b668-0bdd51df78d3-000000","destination":["your_email@example.com"],"headersTruncated":false,"tags":{"ses:source-tls-version":["TLSv1.3"],"ses:operation":["SendTemplatedEmail"],"ses:configuration-set":["EmailFailures"],"ses:source-ip":["89.154.69.34"],"ses:from-domain":["example.com"],"ses:caller-identity":["root"]}},"failure":{"errorMessage":"Attribute 'name' is not present in the rendering data.","templateName":"DummyTemplate"}}
 ```
 
 And your lambda should also get an event with similar payload.
