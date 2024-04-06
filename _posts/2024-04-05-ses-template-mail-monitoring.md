@@ -95,6 +95,27 @@ Next, in `Specify Destination` select `Amazon SNS` enter a suitable destination 
 ![AWS Console view of specifying destination](../media/specify_destination.png "Specifying destination")
 
 
+### Specify Configuration set
+
+One thing is missing, we have to instruct ses to use our configuration set when sending the templated email.
+We do that by adding the configuration set name to the `sendTemplateEmail` parameters like so
+
+```javascript
+const sendTemplateEmailParams = {
+    Template: templateName,
+    Destination: {
+      ToAddresses: [sendTo],
+    },
+    Source: process.env.SOURCE_EMAIL_ADDRESS, // use the SES domain or email verified in your account
+    TemplateData: JSON.stringify(data || {}),
+    ConfigurationSetName: '<your config set name>'
+  };
+
+  const resp = await sesClient
+    .sendTemplatedEmail(sendTemplateEmailParams)
+    .promise();
+```
+
 ### Testing it all out
 
 A small env file has been added, which is quite helpful to potentially inject sensitive values.
