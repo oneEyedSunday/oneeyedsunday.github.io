@@ -1,0 +1,68 @@
+service: sesmonitoring
+frameworkVersion: '3'
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: 'us-east-1'
+  stage: ${opt:stage, 'dev'}
+  environment:
+    AWS_SDK_LOAD_CONFIG: '1'
+    AWS_SES_REGION: ${aws:region}
+    DEFAULT_TO_ADDRESS: ${file(env.yml):DEFAULT_TO_ADDRESS}
+    SOURCE_EMAIL_ADDRESS: ${file(env.yml):SOURCE_EMAIL_ADDRESS}
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "ses:SendTemplateEmail"
+        - "ses:CreateTemplate"
+        - "ses:ListTemplates"
+      Resource: "*"
+
+
+resources:
+  Resources:
+    SESRenderingTemplateFailureTopic:
+      Type: AWS::SNS::Topic
+      Properties:
+        TopicName: SESRenderingFailureTopic
+    SESRenderingTemplateFailureEmailSubscription:
+      Type: AWS::SNS::Subscription
+      Properties:
+        Endpoint: "idiakosesunday@yahoo.com"
+        Protocol: "email"
+        TopicArn: !Ref SESRenderingTemplateFailureTopic
+
+functions:
+  monitorFailuresFn:
+    handler: functions/main.logSESFailureEvent
+    events:
+      - sns:
+          arn: !Ref SESRenderingTemplateFailureTopic
+          topicName: SESRenderingFailureTopic
+  createTemplate:
+    handler: functions/main.createTemplate
+    events:
+      - httpApi:
+          path: /mailing/templates
+          method: post
+    timeout: 15
+  getTemplates:
+    handler: functions/main.listTemplates
+    events:
+      - httpApi:
+          path: /mailing/templates
+          method: get
+    timeout: 5
+  consume:
+    handler: functions/main.sendEmail
+    environment: ${file(env.yml)}
+    events:
+      - httpApi:
+          path: /mailing/send
+          method: post
+    timeout: 10
+    
