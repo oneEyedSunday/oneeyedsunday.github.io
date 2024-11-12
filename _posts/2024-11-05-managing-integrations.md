@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Managing large Integrations"
-date:   2025-11-05 00:35:00 +0100
+date:   2024-11-05 00:35:00 +0100
 categories: blog
 tags:
 - integrations
